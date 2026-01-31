@@ -1,3 +1,4 @@
+<!-- CLEAN BUILD: No Local Login (App Only) (Buttons+Sync) | Generated 2026-01-31 23:18 UTC -->
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,8 +8,8 @@
 <style>
 :root{--bg:#07101f;--card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.04);--line:rgba(255,255,255,.10);--text:#eaf0ff;--muted:#9fb0d0;--accent:#4da3ff;--good:#2fe39a;--bad:#ff6b6b;--warn:#ffcf5a;--shadow:0 14px 40px rgba(0,0,0,.35);--radius:18px}
 *{box-sizing:border-box}
-body{margin:0;padding:14px;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial;color:var(--text);background:radial-gradient(900px 600px at 15% 0%, rgba(77,163,255,.18), transparent 60%),radial-gradient(700px 500px at 90% 15%, rgba(47,227,154,.12), transparent 55%),var(--bg);overflow-x:hidden}
-.container{max-width:1120px;margin:0 auto;overflow-x:hidden}
+body{margin:0;padding:14px;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial;color:var(--text);background:radial-gradient(900px 600px at 15% 0%, rgba(77,163,255,.18), transparent 60%),radial-gradient(700px 500px at 90% 15%, rgba(47,227,154,.12), transparent 55%),var(--bg)}
+.container{max-width:1120px;margin:0 auto}
 .header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:6px 0 14px}
 h1{margin:0;font-size:20px}
 .sub{margin:6px 0 0;color:var(--muted);font-size:13px}
@@ -28,10 +29,10 @@ h1{margin:0;font-size:20px}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%}
 .ok .dot{background:var(--good)}.bad .dot{background:var(--bad)}.warn .dot{background:var(--warn)}
-.modalGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .full{grid-column:1 / -1}
-.tableWrap{max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-x;border-radius:14px;border:1px solid rgba(255,255,255,.10)}
+.tableWrap{overflow:auto;border-radius:14px;border:1px solid rgba(255,255,255,.10)}
 table{width:100%;min-width:1100px;border-collapse:separate;border-spacing:0}
 th,td{padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right;font-size:13px;vertical-align:top}
 th{position:sticky;top:0;background:rgba(10,18,35,.85);backdrop-filter:blur(8px);color:var(--muted);z-index:1}
@@ -64,109 +65,13 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:10px 0}
 .switch input:checked + .slider{background:rgba(47,227,154,.16);border-color:rgba(47,227,154,.35)}
 .switch input:checked + .slider:before{transform:translateX(-20px);background:rgba(255,255,255,.9)}
 
-#syncMenuBtn{display:none}
+
+#syncMenuBtn{display:inline-flex}
 
 /* --- Chart collapse (show only when Monthly Income opened) --- */
-#chartWrap{display:none !important;margin-top:10px}
+#chartWrap{display:none;margin-top:10px}
 #incomeChart{max-height:240px;width:100% !important}
 
-
-/* --- Chart stability fix --- */
-#chartWrap{min-height:260px}
-#incomeChart{height:240px !important; max-height:240px}
-
-
-/* --- Chart toggle switch --- */
-#chartWrap{display:none !important; min-height:260px; margin-top:8px}
-#incomeChart{height:240px !important; max-height:240px; width:100% !important}
-.switch{position:relative;display:inline-block;width:46px;height:24px;flex:0 0 auto}
-.switch input{opacity:0;width:0;height:0}
-.slider{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.25);border-radius:24px;transition:.25s}
-.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.25s}
-.switch input:checked + .slider{background:rgba(76,175,80,.9)}
-.switch input:checked + .slider:before{transform:translateX(22px)}
-
-
-/* --- Actions menu (details-based, mobile reliable) --- */
-.actionsDetails{position:relative;display:inline-block}
-.actionsDetails summary{cursor:pointer;list-style:none}
-.actionsDetails summary::-webkit-details-marker{display:none}
-.menuDetails{
-  position:absolute;
-  inset-inline-end:0;
-  min-width:210px;
-  background:rgba(18,28,51,.98);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:14px;
-  box-shadow:0 18px 60px rgba(0,0,0,.45);
-  padding:6px;
-  z-index:80;
-  display:none;
-}
-.actionsDetails[open] .menuDetails{display:block}
-.menuDetails button{
-  width:100%;
-  text-align:start;
-  padding:10px 10px;
-  background:transparent;
-  border:0;
-  color:#e8eefc;
-  border-radius:10px;
-  cursor:pointer;
-}
-.menuDetails button:hover{background:rgba(255,255,255,.08)}
-.menuDetails .sep{height:1px;background:rgba(255,255,255,.10);margin:6px 0}
-
-
-/* --- Fix: actions menu not fully visible inside scrollers --- */
-.tableWrap{overflow-x:auto; overflow-y:visible !important; padding-bottom:180px;}
-.actionsDetails{z-index:200;}
-.menuDetails{
-  max-height:260px;
-  overflow:auto;
-}
-
-
-table, thead, tbody, tr, td, th{overflow:visible}
-
-
-/* --- Center actions modal to avoid clipping --- */
-#actionsModalBack{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:9999;padding:16px}
-#actionsModalBack .modal{width:min(420px, 96vw);max-height:85vh;overflow:auto}
-.modalGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn.danger{background:rgba(244,67,54,.95)}
-
-
-/* --- Renew options UI in actions modal --- */
-.renewBox{margin-top:12px;padding:10px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.03)}
-.renewTitle{font-weight:700;margin-bottom:10px}
-.renewChips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-.chip{
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  color:#e8eefc;
-  padding:8px 12px;
-  border-radius:999px;
-  cursor:pointer;
-  touch-action:manipulation;
-}
-.chip.active{background:rgba(59,130,246,.25);border-color:rgba(59,130,246,.55)}
-.renewManual{margin-top:8px}
-.renewLabel{display:block;opacity:.85;margin-bottom:6px}
-.renewRow{display:flex;gap:10px;align-items:center}
-.renewInput{
-  flex:1;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.15);
-  color:#e8eefc;
-  outline:none;
-}
-.renewHint{opacity:.7;margin-top:8px;font-size:.9em}
-
-
-#app{display:none}
 </style>
 </head>
 <body>
@@ -184,12 +89,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
 </div>
   </div>
 
-  <div class="card" id="loginCard">
-    <div class="row">
-      <input class="input" id="user" placeholder="اسم المستخدم (admin / staff / viewer)" autocomplete="username">
-      <input class="input" id="pass" type="password" placeholder="كلمة المرور" autocomplete="current-password">
-      <button class="btn primary" onclick="login()">🔐 دخول</button>
-    </div>
+  
     <p class="muted" style="margin:10px 0 0" id="lockMsg"></p>
 
     <hr>
@@ -222,7 +122,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
     </p>
   </div>
 
-  <div id="app" style="display:none">
+  <div id="app">
     <div class="card">
       <div class="kpis">
         <div class="kpi"><div class="t">إجمالي</div><div class="v" id="k_all">0</div></div>
@@ -259,7 +159,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
 
         <label class="btn" id="importBtn" style="cursor:pointer">
           ⬆️ استيراد CSV
-          <input type="file" accept="text/csv,application/vnd.ms-excel,application/csv,.csv" style="display:none" onchange="importCSV(event)">
+          <input type="file" accept=".csv" style="display:none" onchange="importCSV(event)">
         </label>
 
         
@@ -348,16 +248,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
           <div style="font-size:14px">📈 الدخل آخر 6 أشهر</div>
           <div class="muted" id="chartHint"></div>
         </div>
-        
-<div class="row" style="margin:10px 0; align-items:center; gap:10px">
-  <label class="switch">
-    <input type="checkbox" id="chartToggle" onchange="toggleChartSwitch(this.checked)">
-    <span class="slider"></span>
-  </label>
-  <span class="muted">إظهار الخط البياني</span>
-</div>
-
-<div id="chartWrap" style="display:none"><canvas id="incomeChart" height="90" style="width:100%; margin-top:10px"></canvas></div>
+        <canvas id="incomeChart" height="90" style="width:100%; margin-top:10px"></canvas>
       </div>
     </div>
 
@@ -385,7 +276,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
       <button class="btn ghost" onclick="closeModal()">✖</button>
     </div>
 
-    <div class="modalGrid">
+    <div class="grid2">
       <input class="input" id="m_name" placeholder="اسم العميل">
       <input class="input" id="m_email" placeholder="البريد الإلكتروني">
       <input class="input" id="m_plan" placeholder="نوع الخطة">
@@ -413,7 +304,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
       <button class="btn ghost" onclick="closePwModal()">✖</button>
     </div>
 
-    <div class="modalGrid">
+    <div class="grid2">
       <input class="input" id="pw_current" type="password" placeholder="كلمة المرور الحالية">
       <select class="select" id="pw_target">
         <option value="self">تغيير لحسابي فقط</option>
@@ -451,7 +342,7 @@ table, thead, tbody, tr, td, th{overflow:visible}
       </div>
       <hr>
 
-      <div class="modalGrid">
+      <div class="grid2">
         <div class="card" style="margin:0; padding:12px">
           <div style="font-size:14px; margin-bottom:6px">☁️ Google Drive</div>
           <div class="muted" style="line-height:1.9">
@@ -615,6 +506,7 @@ function bootAuthed(){
   render();
   ensureIncomeDefaults();
   calcMonthlyIncome();
+  wireAutoBackupToggle();
   maybeRemindBackup();
   scheduleAutoLogout();
   ["click","keydown","mousemove","touchstart"].forEach(ev=>{
@@ -647,6 +539,33 @@ function backupJSON(){
   updateSyncBadge();
   alert("تم حفظ النسخة الاحتياطية (backup.json)");
 }
+
+function shareBackup(){
+  // مشاركة ملف backup.json عبر واجهة المشاركة إن وُجدت (Android/ iOS/ بعض المتصفحات)
+  try{
+    const payload={exportedAt:new Date().toISOString(),data:load(),log:loadLog()};
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json;charset=utf-8"});
+    try{
+      const file=new File([blob],"backup.json",{type:"application/json"});
+      if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+        navigator.share({files:[file],title:"Backup",text:"backup.json"});
+        localStorage.setItem(LAST_SYNC_KEY, JSON.stringify({type:"backup-share", t:Date.now()}));
+        updateSyncBadge();
+        return;
+      }
+    }catch(_){}
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download="backup.json";
+    document.body.appendChild(a);a.click();a.remove();
+    URL.revokeObjectURL(url);
+    localStorage.setItem(LAST_SYNC_KEY, JSON.stringify({type:"backup", t:Date.now()}));
+    updateSyncBadge();
+  }catch(e){
+    alert("تعذر مشاركة النسخة الاحتياطية");
+  }
+}
+
 function restoreJSON(event){
   const file = event.target.files && event.target.files[0];
   if(!file) return;
@@ -761,6 +680,20 @@ async function copyText(t){
   }
 }
 
+function toggleMenu(id){
+  document.querySelectorAll(".menu.open").forEach(m=>{if(m.id!==id)m.classList.remove("open");});
+  const menu=document.getElementById(id); if(!menu) return;
+  if(menu.classList.contains("open")){menu.classList.remove("open");return;}
+  const btn=menu.previousElementSibling;
+  const rect=btn.getBoundingClientRect();
+  const menuHeight=260;
+  const spaceBelow=window.innerHeight-rect.bottom;
+  const spaceAbove=rect.top;
+  menu.classList.remove("up","down");
+  if(spaceBelow<menuHeight && spaceAbove>spaceBelow) menu.classList.add("up");
+  else menu.classList.add("down");
+  menu.classList.add("open");
+}
 document.addEventListener("click",(e)=>{
   if(!e.target.closest(".actions")){
     document.querySelectorAll(".menu.open").forEach(m=>m.classList.remove("open"));
@@ -838,7 +771,21 @@ function render(){
         <td>${badgeHTML(st.status)}</td>
         <td>${safeText(r.notes)}</td>
         <td>
-          <button class="btn" type="button" onclick="openActionsModal(${realIndex})">⚡ إجراءات</button></td>
+          <div class="actions">
+            <button class="btn" onclick="toggleMenu('${menuId}')">⚡ إجراءات</button>
+            <div class="menu" id="${menuId}">
+              ${canEdit()?`<button onclick="openEdit(${realIndex}); toggleMenu('${menuId}')">✏️ تعديل</button>`:""}
+              ${canEdit()?`<div class="sep"></div>`:""}
+              ${canEdit()?`<button onclick="renew(${realIndex},1); toggleMenu('${menuId}')">⏩ تجديد +1 شهر</button>`:""}
+              ${canEdit()?`<button onclick="renew(${realIndex},3); toggleMenu('${menuId}')">⏩ تجديد +3 أشهر</button>`:""}
+              ${canEdit()?`<button onclick="renew(${realIndex},12); toggleMenu('${menuId}')">⏩ تجديد +12 شهر</button>`:""}
+              ${canEdit()?`<button onclick="renewCustom(${realIndex}); toggleMenu('${menuId}')">🧮 تجديد مدة مخصصة</button>`:""}
+              ${canEdit()?`<button onclick="renewWithPrice(${realIndex}); toggleMenu('${menuId}')">🧾 تجديد + تغيير السعر</button>`:""}
+              ${canDelete()?`<div class="sep"></div>`:""}
+              ${canDelete()?`<button class="dangerItem" onclick="del(${realIndex}); toggleMenu('${menuId}')">🗑️ حذف</button>`:""}
+            </div>
+          </div>
+        </td>
       </tr>`;
   });
   stats.textContent=`المعروض: ${view.length} | يمكنك التمرير أفقياً على الموبايل لعرض كامل الأعمدة`;
@@ -945,13 +892,6 @@ function renew(index,addMonthsCount){
   addLog("renew_payment",{amount:Number(r.price||0),plan:r.plan||"بدون خطة",email:r.email||"",months_added:Number(addMonthsCount||0)});
   render();
 }
-
-// Wrapper so Actions Modal can renew reliably
-function renewRow(index){
-  // default: تمديد شهر واحد
-  return renew(index, 1);
-}
-
 function renewCustom(index){
   if(!canEdit()){alert("ليس لديك صلاحية");return;}
   const input=prompt("اكتب عدد الأشهر التي تريد إضافتها (مثال: 2 أو 6 أو 24)");
@@ -1286,7 +1226,6 @@ function drawIncomeChart(points){
 }
 
 function calcMonthlyIncome(){
-  try{ if(window.__showIncomeChart) window.__showIncomeChart(); }catch(e){}
   const month=document.getElementById("incomeMonth")?.value;
   const mode=document.getElementById("incomeMode")?.value||"start";
   if(!month) return;
@@ -1376,6 +1315,8 @@ async function saveNewPassword(){
 }
 
 
+
+
 function setSyncBtnVisible(v){
   const b=document.getElementById("syncMenuBtn");
   if(!b) return;
@@ -1383,9 +1324,6 @@ function setSyncBtnVisible(v){
 }
 
 function openSyncMenu(){
-  try{ closeActions(); }catch{}
-  try{ closeRemind(); }catch{}
-  try{ closeSyncHelp(); }catch{}
   const b=document.getElementById("syncMenuBack");
   if(b) b.style.display="flex";
 }
@@ -1441,218 +1379,6 @@ function maybeRemindBackup(){
     lockMsg.textContent=ready?"سجّل دخولك.":"لا يوجد إعداد كلمات مرور بعد. افتح (إعداد أول مرة) واحفظ الإعداد.";
   }
 })();
-
-function toggleChartSwitch(show){
-  const w=document.getElementById("chartWrap");
-  if(!w) return;
-  w.style.display = show ? "block" : "none";
-  try{
-    if(show && typeof calcMonthlyIncome==="function"){
-      setTimeout(calcMonthlyIncome,100);
-    }
-  }catch(e){}
-}
-
-
-function initChartToggle(){
-  // ابدأ دائمًا مخفيًا حتى يفعّل المستخدم السويتشر
-  toggleChartSwitch(false);
-}
-window.addEventListener("load", initChartToggle);
-
-function toggleChartSwitch(show){
-  const w=document.getElementById("chartWrap");
-  if(!w) return;
-  w.style.display = show ? "block" : "none";
-
-  // إذا تم الإخفاء: امسح الرسم/ودمّر الشارت إن وُجد
-  if(!show){
-    try{ if(window.incomeChart){ window.incomeChart.destroy(); window.incomeChart=null; } }catch(e){}
-    try{
-      const c=document.getElementById("incomeChart");
-      if(c && c.getContext){ const ctx=c.getContext("2d"); ctx.clearRect(0,0,c.width,c.height); }
-    }catch(e){}
-    return;
-  }
-
-  // إذا تم الإظهار: احسب/ارسم بعد أن يأخذ المقاس
-  try{
-    if(typeof calcMonthlyIncome==="function"){
-      setTimeout(calcMonthlyIncome,150);
-    }
-  }catch(e){}
-}
-
-// امنع رسم المنحنى إذا السويتشر OFF
-(function(){
-  const _orig = window.calcMonthlyIncome;
-  if(typeof _orig === "function" && !window.__patchedCalcMonthlyIncome){
-    window.__patchedCalcMonthlyIncome = true;
-    window.calcMonthlyIncome = function(){
-      const cb=document.getElementById("chartToggle");
-      if(cb && !cb.checked) return; // لا ترسم إلا إذا مُفعّل
-      return _orig.apply(this, arguments);
-    };
-  }
-  window.addEventListener("load", ()=>{ toggleChartSwitch(false); });
-})();
-
-
-// Close actions dropdown after choosing an option
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest && e.target.closest('.actionsDetails .menuDetails button');
-  if(btn){
-    const d = btn.closest('details');
-    if(d) d.removeAttribute('open');
-  }
-});
-
-
-// --- Actions Modal logic ---
-let __actionsIdx = null;
-
-function openActionsModal(idx){
-  __actionsIdx = idx;
-  const back=document.getElementById("actionsModalBack");
-  const sub=document.getElementById("actionsModalSub");
-  try{
-    const data=load();
-    const row=data && data[idx] ? data[idx] : null;
-    if(sub) sub.textContent = row ? (`${row.name||"عميل"} — ${row.email||""}`) : "";
-  }catch(e){
-    if(sub) sub.textContent = "";
-  }
-  if(back){ back.style.display="flex"; }
-  try{ const rb=document.getElementById("renewBox"); if(rb) rb.style.display="none"; }catch(e){}
-}
-
-function closeActionsModal(){
-  const back=document.getElementById("actionsModalBack");
-  if(back) back.style.display="none";
-  __actionsIdx = null;
-}
-
-function actionsDo(kind){
-  const idx=__actionsIdx;
-  if(idx===null || idx===undefined) return;
-
-  // حاول استخدام الدوال الموجودة في المشروع حسب المتوفر
-  try{
-    if(kind==="edit"){
-      if(typeof openEdit === "function") openEdit(idx);
-      else if(typeof editRow === "function") editRow(idx);
-      else if(typeof editItem === "function") editItem(idx);
-      else alert("لا توجد دالة تعديل في هذه النسخة.");
-    }else if(kind==="renew"){
-      if(typeof renewRow === "function") renewRow(idx);
-      else if(typeof renew === "function") renew(idx,1);
-      else if(typeof renewItem === "function") renewItem(idx);
-      else if(typeof extendSub === "function") extendSub(idx);
-      else alert("لا توجد دالة تجديد في هذه النسخة.");
-    }else if(kind==="delete"){
-      if(confirm("هل تريد حذف هذا السجل؟")){
-        if(typeof deleteRow === "function") deleteRow(idx);
-        else if(typeof removeRow === "function") removeRow(idx);
-        else if(typeof delSub === "function") delSub(idx);
-        else alert("لا توجد دالة حذف في هذه النسخة.");
-      }else{
-        return;
-      }
-    }else if(kind==="copy"){
-      try{
-        const data=load();
-        const row=data && data[idx] ? data[idx] : null;
-        const email=row ? (row.email||"") : "";
-        if(!email){ alert("لا يوجد Email لنسخه"); return; }
-        if(navigator.clipboard && navigator.clipboard.writeText){
-          navigator.clipboard.writeText(email).then(()=>alert("✅ تم النسخ")).catch(()=>fallbackCopy(email));
-        }else fallbackCopy(email);
-      }catch(e){
-        alert("تعذر النسخ");
-      }
-    }
-  }finally{
-    closeActionsModal();
-    try{ render && render(); }catch(e){}
-  }
-}
-
-function fallbackCopy(text){
-  const ta=document.createElement("textarea");
-  ta.value=text; document.body.appendChild(ta);
-  ta.select(); ta.setSelectionRange(0, 99999);
-  try{ document.execCommand("copy"); alert("✅ تم النسخ"); }catch(e){ alert("تعذر النسخ"); }
-  ta.remove();
-}
-
-// Close modal when clicking backdrop
-document.addEventListener("click", (e)=>{
-  const back=document.getElementById("actionsModalBack");
-  if(!back || back.style.display==="none") return;
-  if(e.target === back) closeActionsModal();
-}, {capture:true});
-
-
-
-// Guard: لا تقم بالتجديد إلا بعد فتح صندوق التجديد
-function __isRenewBoxOpen(){
-  const rb = document.getElementById("renewBox");
-  return rb && rb.style.display !== "none";
-}
-
-// --- Renew options handlers ---
-let __renewMonths = 1;
-
-function showRenewOptions(){
-  const box = document.getElementById("renewBox");
-  if(!box) return;
-  box.style.display = "block";
-  __renewMonths = 1;
-  // reset chips
-  box.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
-  const first = box.querySelector('.chip[data-m="1"]');
-  if(first) first.classList.add("active");
-  const input = document.getElementById("renewMonthsInput");
-  if(input) input.value = "";
-}
-
-document.addEventListener("click", (e)=>{
-  const chip = e.target.closest && e.target.closest("#renewBox .chip");
-  if(!chip) return;
-  const m = parseInt(chip.getAttribute("data-m")||"1", 10);
-  if(!Number.isFinite(m) || m<1) return;
-  __renewMonths = m;
-  chip.parentElement.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
-  chip.classList.add("active");
-  const input = document.getElementById("renewMonthsInput");
-  if(input) input.value = "";
-}, {capture:true});
-
-function confirmRenew(){
-  if(!__isRenewBoxOpen()){ return; }
-  const idx = __actionsIdx;
-  if(idx===null || idx===undefined) return;
-
-  const input = document.getElementById("renewMonthsInput");
-  let months = __renewMonths;
-
-  if(input && input.value){
-    const v = parseInt(input.value, 10);
-    if(!Number.isFinite(v) || v<1){
-      alert("أدخل رقم صحيح (>= 1)");
-      return;
-    }
-    months = v;
-  }
-  // Prefer built-in renew(index, months)
-  if(typeof renew === "function") renew(idx, months);
-  else if(typeof renewRow === "function") renewRow(idx); // fallback (1 month)
-  else alert("لا توجد دالة تجديد في هذه النسخة.");
-
-  closeActionsModal();
-  try{ render && render(); }catch(e){}
-}
-
 </script>
 
 <div class="modalBack" id="syncMenuBack" onclick="closeSyncMenu(event)">
@@ -1694,164 +1420,66 @@ function confirmRenew(){
 
 <input type="file" id="restoreFile" accept="application/json" style="display:none" onchange="restoreJSON(event)">
 
+<script>
+/* --- Chart collapse (auto) --- */
+(function(){
+  function ensureWrap(){
+    const canvas = document.getElementById("incomeChart");
+    if(!canvas) return null;
 
-<!-- Actions Modal -->
-<div id="actionsModalBack" class="modalBack" style="display:none">
-  <div class="modal">
-    <div class="modalHead">
-      <div class="modalTitle">إجراءات</div>
-      <button class="iconBtn" type="button" onclick="closeActionsModal()">✕</button>
-    </div>
-    <div class="modalBody">
-      <div class="muted" id="actionsModalSub" style="margin-bottom:10px"></div>
-      <div class="modalGrid">
-      <button class="btn" type="button" onclick="actionsDo('edit')">✏️ تعديل</button>
-      <button class="btn" type="button" onclick="showRenewOptions()">🔁 تجديد</button>
-      <button class="btn danger" type="button" onclick="actionsDo('delete')">🗑️ حذف</button>
-      <button class="btn secondary" type="button" onclick="actionsDo('copy')">📋 نسخ Email</button>
-</div>
-    <div id="renewBox" class="renewBox" style="display:none">
-      <div class="renewTitle">اختيار مدة التجديد</div>
-      <div class="renewChips">
-        <button class="chip" type="button" data-m="1">شهر</button>
-        <button class="chip" type="button" data-m="3">3 أشهر</button>
-        <button class="chip" type="button" data-m="6">6 أشهر</button>
-      </div>
-      <div class="renewManual">
-        <label class="renewLabel">أو أدخل رقم بالأشهر</label>
-        <div class="renewRow">
-          <input id="renewMonthsInput" class="renewInput" type="number" inputmode="numeric" min="1" max="120" placeholder="مثال: 2" />
-          <button class="btn" type="button" onclick="confirmRenew()">تأكيد التجديد</button>
-        </div>
-        <div class="renewHint">سيتم إضافة المدة إلى تاريخ الانتهاء الحالي.</div>
-      </div>
-    </div>
-</div>
-      <div style="margin-top:12px">
-        <button class="btn secondary" style="width:100%" type="button" onclick="closeActionsModal()">إغلاق</button>
-      </div>
-    </div>
-  </div>
-</div>
+    let wrap = document.getElementById("chartWrap");
+    if(wrap && wrap.contains(canvas)) return wrap;
 
+    wrap = document.createElement("div");
+    wrap.id = "chartWrap";
+    wrap.style.display = "none";
 
-<!-- ================= Firebase Login (Email/Password) ================= -->
-<div id="loginBack" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99999;align-items:center;justify-content:center;padding:16px">
-  <div style="width:min(420px,96vw);background:#0f172a;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px;color:#e5e7eb">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <strong>تسجيل الدخول</strong>
-    </div>
+    const parent = canvas.parentNode;
+    if(!parent) return null;
+    parent.insertBefore(wrap, canvas);
+    wrap.appendChild(canvas);
 
-    <div style="display:grid;gap:10px">
-      <input id="loginEmail" type="email" placeholder="Email"
-        style="padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:#fff;outline:none">
-
-      <input id="loginPass" type="password" placeholder="Password"
-        style="padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.25);color:#fff;outline:none">
-
-      <button id="btnLogin" type="button"
-        style="padding:10px;border-radius:12px;border:0;background:#3b82f6;color:white;cursor:pointer">
-        دخول
-      </button>
-
-      <button id="btnCreate" type="button"
-        style="padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:transparent;color:white;cursor:pointer">
-        إنشاء حساب (مرة واحدة)
-      </button>
-
-      <div id="loginMsg" style="color:#fca5a5;font-size:13px;min-height:18px"></div>
-    </div>
-  </div>
-</div>
-
-<button id="btnLogout" class="btn secondary" type="button"
-  style="display:none;position:fixed;bottom:14px;left:14px;z-index:9999">
-  تسجيل خروج
-</button>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-
-  // إعدادات مشروعك (كما أرسلتها)
-  const firebaseConfig = {
-    apiKey: "AIzaSyCTFWu05DqfkiSN_0vGSb6CpAwGJ5lMoC0",
-    authDomain: "stok-ef86f.firebaseapp.com",
-    projectId: "stok-ef86f",
-    storageBucket: "stok-ef86f.firebasestorage.app",
-    messagingSenderId: "845285269041",
-    appId: "1:845285269041:web:4bdb61a61aa114d600ff10",
-    measurementId: "G-EBF3TC1QWT"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const loginBack = document.getElementById("loginBack");
-  const emailEl = document.getElementById("loginEmail");
-  const passEl = document.getElementById("loginPass");
-  const msgEl = document.getElementById("loginMsg");
-  const btnLogin = document.getElementById("btnLogin");
-  const btnCreate = document.getElementById("btnCreate");
-  const btnLogout = document.getElementById("btnLogout");
-
-  function showLogin(show){
-    loginBack.style.display = show ? "flex" : "none";
-    msgEl.textContent = "";
+    return wrap;
   }
 
-  function friendlyErr(e){
-    const code = (e && e.code) ? e.code : "";
-    if(code.includes("auth/invalid-credential")) return "بيانات الدخول غير صحيحة.";
-    if(code.includes("auth/user-not-found")) return "الحساب غير موجود.";
-    if(code.includes("auth/wrong-password")) return "كلمة المرور غير صحيحة.";
-    if(code.includes("auth/email-already-in-use")) return "هذا البريد مسجل مسبقًا.";
-    if(code.includes("auth/weak-password")) return "كلمة المرور ضعيفة.";
-    if(code.includes("auth/invalid-email")) return "البريد غير صالح.";
-    if(code.includes("auth/network-request-failed")) return "تحقق من اتصال الإنترنت.";
-    return "حدث خطأ. تحقق من إعدادات Firebase والإنترنت.";
+  function showChart(){
+    const wrap = ensureWrap();
+    if(wrap) wrap.style.display = "block";
   }
 
-  onAuthStateChanged(auth, (user) => {
-    const appDiv = document.getElementById("app");
-    if(user){
-      showLogin(false);
-      btnLogout.style.display = "block";
-      if(appDiv) appDiv.style.display = "";
-    }else{
-      btnLogout.style.display = "none";
-      if(appDiv) appDiv.style.display = "none";
-      showLogin(true);
-    }
-  });
+  function hideChart(){
+    const wrap = document.getElementById("chartWrap");
+    if(wrap) wrap.style.display = "none";
+  }
 
-  btnLogin.addEventListener("click", async () => {
-    try{
-      await signInWithEmailAndPassword(auth, emailEl.value.trim(), passEl.value);
-    }catch(e){
-      msgEl.textContent = friendlyErr(e);
-    }
-  });
+  function textOf(el){
+    return (el && (el.innerText || el.textContent) || "").trim();
+  }
 
-  btnCreate.addEventListener("click", async () => {
-    try{
-      await createUserWithEmailAndPassword(auth, emailEl.value.trim(), passEl.value);
-    }catch(e){
-      msgEl.textContent = friendlyErr(e);
-    }
-  });
+  // Show chart when clicking monthly income controls
+  document.addEventListener("click", function(e){
+    const t = e.target.closest("button,a,div,span");
+    if(!t) return;
+    const txt = textOf(t);
 
-  btnLogout.addEventListener("click", async () => {
-    await signOut(auth);
-  });
+    if(txt.includes("دخل شهري") || txt.includes("الدخل الشهري") || txt.includes("Monthly Income")){
+      setTimeout(showChart, 60);
+      return;
+    }
+    // Hide on common close/back actions
+    if(txt === "إغلاق" || txt.includes("رجوع") || txt.includes("Back") || txt.includes("Close")){
+      setTimeout(hideChart, 60);
+      return;
+    }
+  }, true);
+
+  window.addEventListener("load", ensureWrap);
+
+  // expose for direct calls if needed
+  window.__showIncomeChart = showChart;
+  window.__hideIncomeChart = hideChart;
+})();
 </script>
-<!-- ================================================================ -->
 
 </body>
 </html>
